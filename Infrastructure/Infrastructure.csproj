@@ -17,11 +17,11 @@
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.0" />
     <PackageReference Include="RedLock.net" Version="2.3.2" />
     <PackageReference Include="StackExchange.Redis" Version="2.8.24" />
-    <PackageReference Include="Parbad" Version="3.9.1" />
+    <PackageReference Include="Parbad" Version="3.11.3" />
     <PackageReference Include="Parbad.AspNetCore" Version="1.3.0" />
     <PackageReference Include="Parbad.Gateway.IdPay" Version="1.3.0" />
     <PackageReference Include="Parbad.Gateway.PayIr" Version="1.5.0" />
-    <PackageReference Include="Parbad.Gateway.ZarinPal" Version="1.4.1" />
+    <PackageReference Include="Parbad.Gateway.ZarinPal" Version="1.7.1" />
     <PackageReference Include="Parbad.Gateway.Zibal" Version="1.1.0" />
     <PackageReference Include="Polly" Version="8.5.2" />
   </ItemGroup>
