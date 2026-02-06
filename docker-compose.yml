@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  # SQL Server Database
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourPassword123!
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql-data:/var/opt/mssql
+    networks:
+      - dokploy-network
+    healthcheck:
+      test: /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P YourPassword123! -C -Q "SELECT 1" || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # Payment API Service
+  payment:
+    build:
+      context: .
+      dockerfile: payment/Dockerfile
+    expose:
+      - "4005"
+    ports:
+      - "${PORT:-4005}:4005"
+    volumes:
+      - payment-dataprotection:/home/app/.aspnet/DataProtection-Keys
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    networks:
+      - dokploy-network
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=dokploy-network"
+      - "traefik.http.routers.payment.rule=Host(`${HOST:-parvazorg.minisource.ir}`) && PathPrefix(`${HOST_PREFIX:-/api/payment}`)"
+      - "traefik.http.routers.payment.entrypoints=websecure"
+      - "traefik.http.routers.payment.tls=true"
+      - "traefik.http.routers.payment.middlewares=payment-strip"
+      - "traefik.http.middlewares.payment-strip.stripprefix.prefixes=${HOST_PREFIX:-/api/payment}"
+      - "traefik.http.services.payment.loadbalancer.server.port=4005"
+      # HTTP redirect to HTTPS
+      - "traefik.http.routers.payment-http.rule=Host(`${HOST:-parvazorg.minisource.ir}`) && PathPrefix(`${HOST_PREFIX:-/api/payment}`)"
+      - "traefik.http.routers.payment-http.entrypoints=web"
+      - "traefik.http.routers.payment-http.middlewares=redirect-to-https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.redirect-to-https.redirectscheme.permanent=true"
+
+volumes:
+  mssql-data:
+    driver: local
+  payment-dataprotection:
+    driver: local
+
+networks:
+  dokploy-network:
+    external: true

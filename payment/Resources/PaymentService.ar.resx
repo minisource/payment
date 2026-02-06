@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="payment.no_gateway_specified" xml:space="preserve">
+    <value>لم يتم تحديد بوابة الدفع.</value>
+  </data>
+  <data name="payment.initiation_failed" xml:space="preserve">
+    <value>فشل بدء الدفع: {0}</value>
+  </data>
+  <data name="payment.not_found" xml:space="preserve">
+    <value>لم يتم العثور على الدفع.</value>
+  </data>
+  <data name="payment.already_verified" xml:space="preserve">
+    <value>تم التحقق من الدفع مسبقاً.</value>
+  </data>
+  <data name="payment.verify_completed" xml:space="preserve">
+    <value>تم إكمال التحقق من الدفع.</value>
+  </data>
+  <data name="payment.unknown_error" xml:space="preserve">
+    <value>خطأ غير معروف.</value>
+  </data>
+</root>

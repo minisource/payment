@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  # SQL Server Database
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: payment-sqlserver-dev
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourPassword123!
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_dev_data:/var/opt/mssql
+    networks:
+      - payment-dev-network
+    healthcheck:
+      test: /opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P YourPassword123! -C -Q "SELECT 1" || exit 1
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+
+  # Payment API Service (Development with hot reload)
+  payment-api:
+    build:
+      context: .
+      dockerfile: payment/Dockerfile
+      target: base
+    container_name: payment-api-dev
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:4005
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=PaymentDb;User Id=sa;Password=YourPassword123!;TrustServerCertificate=True;
+      - Auth__Authority=http://host.docker.internal:4000
+      - Auth__Audience=payment-api
+      - Auth__RequireHttpsMetadata=false
+      - Payment__DefaultGateway=ZarinPal
+      - Payment__ShopCallbackUrl=http://host.docker.internal:4008/api/v1/orders/payment-callback
+      - Payment__Gateways__ZarinPal__MerchantId=${ZARINPAL_MERCHANT_ID:-your-zarinpal-merchant-id}
+      - Payment__Gateways__ZarinPal__IsSandbox=true
+      - Payment__Gateways__Snapp__ApiKey=${SNAPP_API_KEY:-your-snapp-api-key}
+      - Payment__Gateways__Snapp__TerminalId=${SNAPP_TERMINAL_ID:-your-terminal-id}
+      - Payment__Polly__RetryCount=3
+      - Payment__Polly__TimeoutSeconds=30
+    ports:
+      - "4005:4005"
+    volumes:
+      - ./payment:/app/payment:ro
+      - ./Application:/app/Application:ro
+      - ./Domain:/app/Domain:ro
+      - ./Infrastructure:/app/Infrastructure:ro
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+    networks:
+      - payment-dev-network
+    restart: unless-stopped
+
+volumes:
+  sqlserver_dev_data:
+    driver: local
+
+networks:
+  payment-dev-network:
+    driver: bridge
