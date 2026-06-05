@@ -1,0 +1,29 @@
+services:
+  payment:
+    image: minisource/payment:${TAG:-latest}
+    container_name: minisource-payment
+    expose:
+      - "4005"
+    ports:
+      - "${PORT:-4005}:4005"
+    volumes:
+      - payment-dataprotection:/home/app/.aspnet/DataProtection-Keys
+    env_file:
+      - .env
+    networks:
+      - minisource-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4005/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 15s
+
+networks:
+  minisource-network:
+    external: true
+
+volumes:
+  payment-dataprotection:
+    driver: local

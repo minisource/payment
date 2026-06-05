@@ -62,14 +62,29 @@ dotnet run --project payment
 
 ### Docker
 
+Images are published to [Docker Hub](https://hub.docker.com/orgs/minisource/repositories) on every successful build to `main`.
+
+| Image | Tags |
+|-------|------|
+| `minisource/payment` | `latest`, commit SHA |
+
 ```bash
-# Build and run with Docker Compose
-docker-compose -f docker-compose.dev.yml up --build
+# Production (pre-built image)
+export TAG=latest
+docker compose -f docker-compose.prod.yml up -d
+
+# Development (build from source)
+docker compose -f docker-compose.dev.yml up --build
 
 # Or use the scripts
 ./docker.sh up     # Linux/Mac
 docker.bat up      # Windows
 ```
+
+### GitHub Actions secrets
+
+- `DOCKERHUB_USERNAME` — Docker Hub username
+- `DOCKERHUB_TOKEN` — Docker Hub access token
 
 ## Configuration
 
