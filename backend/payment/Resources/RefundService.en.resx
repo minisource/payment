@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="refund_not_found" xml:space="preserve">
+    <value>Refund request was not found.</value>
+  </data>
+  <data name="refund_invalid_state" xml:space="preserve">
+    <value>Refund request state is not valid for this operation.</value>
+  </data>
+  <data name="refund_not_allowed" xml:space="preserve">
+    <value>This payment transaction cannot be refunded.</value>
+  </data>
+  <data name="refund_already_completed" xml:space="preserve">
+    <value>This refund request has already been completed.</value>
+  </data>
+  <data name="refund_already_rejected" xml:space="preserve">
+    <value>This refund request has already been rejected.</value>
+  </data>
+  <data name="refund_amount_invalid" xml:space="preserve">
+    <value>Refund amount is invalid.</value>
+  </data>
+  <data name="refund_amount_exceeds_paid_amount" xml:space="preserve">
+    <value>Refund amount cannot exceed the paid amount.</value>
+  </data>
+  <data name="refund_currency_mismatch" xml:space="preserve">
+    <value>Refund currency does not match the original payment currency.</value>
+  </data>
+  <data name="refund_gateway_not_supported" xml:space="preserve">
+    <value>This gateway does not support refund.</value>
+  </data>
+  <data name="refund_gateway_failed" xml:space="preserve">
+    <value>Gateway refund operation failed.</value>
+  </data>
+  <data name="refund_gateway_pending" xml:space="preserve">
+    <value>Gateway refund is pending. Result will be available later.</value>
+  </data>
+  <data name="refund_gateway_unknown" xml:space="preserve">
+    <value>Gateway refund status is unknown. Manual review required.</value>
+  </data>
+  <data name="refund_wallet_debit_failed" xml:space="preserve">
+    <value>Gateway refund succeeded, but wallet debit failed and requires manual review.</value>
+  </data>
+  <data name="refund_wallet_balance_insufficient" xml:space="preserve">
+    <value>Wallet balance is insufficient for this refund operation.</value>
+  </data>
+  <data name="refund_reason_required" xml:space="preserve">
+    <value>Refund reason is required.</value>
+  </data>
+  <data name="refund_admin_note_required" xml:space="preserve">
+    <value>Admin note is required for this operation.</value>
+  </data>
+  <data name="refund_tenant_access_denied" xml:space="preserve">
+    <value>Access denied to this refund request.</value>
+  </data>
+  <data name="refund_duplicate_request" xml:space="preserve">
+    <value>A duplicate refund request already exists.</value>
+  </data>
+  <data name="refund_requires_manual_review" xml:space="preserve">
+    <value>This refund requires manual review before proceeding.</value>
+  </data>
+  <data name="refund_hold_created" xml:space="preserve">
+    <value>Wallet funds have been reserved for this refund.</value>
+  </data>
+  <data name="refund_hold_released" xml:space="preserve">
+    <value>Wallet hold has been released.</value>
+  </data>
+  <data name="refund_processing" xml:space="preserve">
+    <value>Refund is being processed.</value>
+  </data>
+  <data name="refund_completed" xml:space="preserve">
+    <value>Refund has been completed successfully.</value>
+  </data>
+</root>

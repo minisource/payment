@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="refund_not_found" xml:space="preserve">
+    <value>درخواست بازگشت وجه پیدا نشد.</value>
+  </data>
+  <data name="refund_invalid_state" xml:space="preserve">
+    <value>وضعیت درخواست بازگشت وجه برای این عملیات معتبر نیست.</value>
+  </data>
+  <data name="refund_not_allowed" xml:space="preserve">
+    <value>این تراکنش قابل بازگشت وجه نیست.</value>
+  </data>
+  <data name="refund_already_completed" xml:space="preserve">
+    <value>این درخواست بازگشت وجه قبلاً تکمیل شده است.</value>
+  </data>
+  <data name="refund_already_rejected" xml:space="preserve">
+    <value>این درخواست بازگشت وجه قبلاً رد شده است.</value>
+  </data>
+  <data name="refund_amount_invalid" xml:space="preserve">
+    <value>مبلغ بازگشت وجه نامعتبر است.</value>
+  </data>
+  <data name="refund_amount_exceeds_paid_amount" xml:space="preserve">
+    <value>مبلغ بازگشت وجه نمی‌تواند بیشتر از مبلغ پرداخت‌شده باشد.</value>
+  </data>
+  <data name="refund_currency_mismatch" xml:space="preserve">
+    <value>ارز درخواست بازگشت وجه با ارز پرداخت اصلی مطابقت ندارد.</value>
+  </data>
+  <data name="refund_gateway_not_supported" xml:space="preserve">
+    <value>این درگاه از بازگشت وجه پشتیبانی نمی‌کند.</value>
+  </data>
+  <data name="refund_gateway_failed" xml:space="preserve">
+    <value>عملیات بازگشت وجه در درگاه ناموفق بود.</value>
+  </data>
+  <data name="refund_gateway_pending" xml:space="preserve">
+    <value>بازگشت وجه در درگاه در حال انجام است. نتیجه بعداً اعلام می‌شود.</value>
+  </data>
+  <data name="refund_gateway_unknown" xml:space="preserve">
+    <value>وضعیت بازگشت وجه در درگاه نامشخص است. نیاز به بررسی دستی دارد.</value>
+  </data>
+  <data name="refund_wallet_debit_failed" xml:space="preserve">
+    <value>بازگشت وجه در درگاه موفق بود اما کسر از کیف پول ناموفق بود و نیاز به بررسی دستی دارد.</value>
+  </data>
+  <data name="refund_wallet_balance_insufficient" xml:space="preserve">
+    <value>موجودی کیف پول برای انجام بازگشت وجه کافی نیست.</value>
+  </data>
+  <data name="refund_reason_required" xml:space="preserve">
+    <value>دلیل بازگشت وجه الزامی است.</value>
+  </data>
+  <data name="refund_admin_note_required" xml:space="preserve">
+    <value>یادداشت مدیر برای این عملیات الزامی است.</value>
+  </data>
+  <data name="refund_tenant_access_denied" xml:space="preserve">
+    <value>دسترسی به این درخواست بازگشت وجه مجاز نیست.</value>
+  </data>
+  <data name="refund_duplicate_request" xml:space="preserve">
+    <value>یک درخواست بازگشت وجه تکراری قبلاً ثبت شده است.</value>
+  </data>
+  <data name="refund_requires_manual_review" xml:space="preserve">
+    <value>این بازگشت وجه قبل از ادامه نیاز به بررسی دستی دارد.</value>
+  </data>
+  <data name="refund_hold_created" xml:space="preserve">
+    <value>مبلغ بازگشت وجه از کیف پول رزرو شد.</value>
+  </data>
+  <data name="refund_hold_released" xml:space="preserve">
+    <value>رزرو کیف پول آزاد شد.</value>
+  </data>
+  <data name="refund_processing" xml:space="preserve">
+    <value>بازگشت وجه در حال پردازش است.</value>
+  </data>
+  <data name="refund_completed" xml:space="preserve">
+    <value>بازگشت وجه با موفقیت انجام شد.</value>
+  </data>
+</root>
